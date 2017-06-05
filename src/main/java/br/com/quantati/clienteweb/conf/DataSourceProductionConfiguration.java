@@ -3,6 +3,7 @@ package br.com.quantati.clienteweb.conf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -22,6 +23,7 @@ public class DataSourceProductionConfiguration {
     private Environment environment;
 
     @Bean
+    @Primary
     @Profile("prod")
     public DataSource dataSource() throws URISyntaxException {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -37,8 +39,9 @@ public class DataSourceProductionConfiguration {
     }
 
     @Bean
+    @Primary
     @Profile("prod")
-    private Properties aditionalProperties(){
+    public Properties aditionalProperties(){
         Properties props = new Properties();
         props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         props.setProperty("hibernate.show_sql", "true");
