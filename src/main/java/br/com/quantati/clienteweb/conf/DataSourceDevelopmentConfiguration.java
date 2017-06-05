@@ -26,7 +26,7 @@ public class DataSourceDevelopmentConfiguration {
 
     @Bean
     @Profile("dev")
-    private Properties additionalProperties() {
+    public Properties additionalProperties() {
         Properties props = new Properties();
         props.setProperty("hibernate.dialect","org.hibernate.dialect.MySQL5Dialect");
         props.setProperty("hibernate.show_sql", "true");
