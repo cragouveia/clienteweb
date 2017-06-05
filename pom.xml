@@ -4,9 +4,22 @@
   <groupId>org.clienteweb</groupId>
   <artifactId>clienteweb</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <packaging>war</packaging>
   <build>
     <finalName>clienteweb</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>1.5.3.RELEASE</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
   <properties>
     <failOnMissingWebXml>false</failOnMissingWebXml>
