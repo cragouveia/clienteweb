@@ -38,25 +38,4 @@ public class JPAConfiguration {
     public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
     }
-
-    @Bean
-    @Profile("dev")
-    public DataSource dataSource(){
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUsername("root");
-        dataSource.setPassword("mysql");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/clienteweb");
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        return dataSource;
-    }
-
-    @Bean
-    @Profile("dev")
-    public Properties additionalProperties() {
-        Properties props = new Properties();
-        props.setProperty("hibernate.dialect","org.hibernate.dialect.MySQL5Dialect");
-        props.setProperty("hibernate.show_sql", "true");
-        props.setProperty("hibernate.hbm2ddl.auto", "update");
-        return props;
-    }
 }

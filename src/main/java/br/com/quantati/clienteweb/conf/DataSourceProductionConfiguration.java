@@ -18,7 +18,7 @@ import java.util.Properties;
  */
 @Configuration
 @Profile("prod")
-public class JPAProductionConfiguration {
+public class DataSourceProductionConfiguration {
 
     @Autowired
     private Environment environment;
