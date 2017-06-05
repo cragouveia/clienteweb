@@ -26,6 +26,7 @@ public class Cliente implements Serializable {
     private EstadoCivil estadoCivil;
     private String caminhoFoto;
     @Lob
+    @Column(columnDefinition = "text")
     private String image;
 
     public Cliente() {

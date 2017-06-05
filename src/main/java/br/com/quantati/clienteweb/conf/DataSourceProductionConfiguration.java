@@ -27,11 +27,11 @@ public class DataSourceProductionConfiguration {
     @Profile("prod")
     public DataSource dataSource() throws URISyntaxException {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setDriverClassName("org.postgresql.Driver");
 
         URI dbUrl = new URI(environment.getProperty("DATABASE_URL"));
 
-        dataSource.setUrl("jdbc:mysql://"+dbUrl.getHost()+":"+dbUrl.getPort()+dbUrl.getPath());
+        dataSource.setUrl("jdbc:postgresql://"+dbUrl.getHost()+":"+dbUrl.getPort()+dbUrl.getPath());
         dataSource.setUsername(dbUrl.getUserInfo().split(":")[0]);
         dataSource.setPassword(dbUrl.getUserInfo().split(":")[1]);
 
@@ -43,7 +43,7 @@ public class DataSourceProductionConfiguration {
     @Profile("prod")
     public Properties aditionalProperties(){
         Properties props = new Properties();
-        props.setProperty("hibernate.dialect","org.hibernate.dialect.MySQL5Dialect");
+        props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         props.setProperty("hibernate.show_sql", "true");
         props.setProperty("hibernate.hbm2ddl.auto", "update");
         return props;
