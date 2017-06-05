@@ -12,9 +12,9 @@ import java.util.Properties;
  * Created by carlos on 05/06/2017.
  */
 @Configuration
-@Profile("dev")
 public class DataSourceDevelopmentConfiguration {
     @Bean
+    @Profile("dev")
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUsername("root");
@@ -25,6 +25,7 @@ public class DataSourceDevelopmentConfiguration {
     }
 
     @Bean
+    @Profile("dev")
     public Properties additionalProperties() {
         Properties props = new Properties();
         props.setProperty("hibernate.dialect","org.hibernate.dialect.MySQL5Dialect");

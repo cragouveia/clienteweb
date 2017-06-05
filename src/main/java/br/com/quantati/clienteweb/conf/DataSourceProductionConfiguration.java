@@ -17,13 +17,13 @@ import java.util.Properties;
  * Created by carlos on 29/05/2017.
  */
 @Configuration
-@Profile("prod")
 public class DataSourceProductionConfiguration {
 
     @Autowired
     private Environment environment;
 
     @Bean
+    @Profile("prod")
     public DataSource dataSource() throws URISyntaxException {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
@@ -38,6 +38,7 @@ public class DataSourceProductionConfiguration {
     }
 
     @Bean
+    @Profile("prod")
     public Properties aditionalProperties(){
         Properties props = new Properties();
         props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
