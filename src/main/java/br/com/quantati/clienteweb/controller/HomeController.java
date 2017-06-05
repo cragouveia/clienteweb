@@ -36,7 +36,7 @@ public class HomeController {
     @CacheEvict(value = "listaCliente", allEntries = true)
     public synchronized String save(@RequestBody Cliente cliente) {
         try {
-            service.save(cliente);
+            cliente = service.save(cliente);
             fileSaver.store( cliente.getId() + ".png", Base64Utils.decodeFromString(cliente.getImage()));
         }
         catch (Exception e) {
