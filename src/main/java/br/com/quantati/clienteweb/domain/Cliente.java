@@ -1,5 +1,7 @@
 package br.com.quantati.clienteweb.domain;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Calendar;
@@ -26,7 +28,7 @@ public class Cliente implements Serializable {
     private EstadoCivil estadoCivil;
     private String caminhoFoto;
     @Lob
-    @Column(columnDefinition = "text")
+    @Type(type = "text")
     private String image;
 
     public Cliente() {
