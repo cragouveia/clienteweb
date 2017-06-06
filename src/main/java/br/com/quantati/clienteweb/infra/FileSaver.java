@@ -28,6 +28,13 @@ public class FileSaver {
     @Autowired
     public FileSaver(@Value("${upload.directory}") String baseFolder) {
         this.rootLocation = Paths.get(baseFolder);
+        if (!Files.exists(rootLocation)) {
+            try {
+                Files.createDirectory(rootLocation);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void store(String fileName, byte[] bytes) {
