@@ -43,9 +43,10 @@ public class DataSourceProductionConfiguration {
     @Profile("prod")
     public Properties aditionalProperties(){
         Properties props = new Properties();
-        props.setProperty("hibernate.dialect", "br.com.quantati.clienteweb.conf.Custom.PostgreSQLDialect");
+        props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         props.setProperty("hibernate.show_sql", "true");
         props.setProperty("hibernate.hbm2ddl.auto", "update");
+        props.setProperty("hibernate.jdbc.use_streams_for_binary", "true");
         return props;
     }
 
