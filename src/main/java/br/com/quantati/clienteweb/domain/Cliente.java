@@ -1,10 +1,9 @@
 package br.com.quantati.clienteweb.domain;
 
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Calendar;
+
 /**
  * Created by carlos on 22/05/2017.
  */
