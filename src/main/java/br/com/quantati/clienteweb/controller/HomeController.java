@@ -37,7 +37,7 @@ public class HomeController {
     public synchronized String save(@RequestBody Cliente cliente) {
         try {
             cliente = service.save(cliente);
-            fileSaver.store( cliente.getId() + ".png", Base64Utils.decodeFromString(cliente.getImage()));
+            fileSaver.store( cliente.getId() + ".png", cliente.getImage());
         }
         catch (Exception e) {
             e.printStackTrace();
